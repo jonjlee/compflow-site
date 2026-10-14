@@ -1,0 +1,23 @@
+/* Page footer.
+   The page may set --lp-footer-* to match its palette. */
+.lp-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 2rem 2.5rem;
+  border-top: 1px solid var(--lp-footer-rule, var(--cf-border));
+  font-size: 0.85rem;
+  color: var(--lp-footer-text, var(--cf-muted));
+}
+.lp-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.lp-footer a {
+  color: inherit;
+}
+.lp-footer a:hover {
+  color: var(--lp-footer-hover, var(--cf-ink));
+}

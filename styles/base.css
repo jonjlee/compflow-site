@@ -1,0 +1,52 @@
+/* Global foundation: design tokens, reset, and base element styles.
+   Loaded first by landing.css. */
+@import './tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
+/* The `hidden` attribute must win over component display rules (e.g. .btn-primary
+   sets display:inline-flex, which would otherwise keep a [hidden] button shown). */
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--cf-font);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  background: var(--cf-bg);
+  color: var(--cf-text);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--cf-primary-600);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.015em;
+  color: var(--cf-ink);
+}
+
+/* Figures line up in every table, card, and total. */
+table,
+input,
+wa-input {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cf-primary-400);
+  outline-offset: 2px;
+}

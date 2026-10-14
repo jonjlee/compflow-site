@@ -1,0 +1,317 @@
+/* Landing page, "County" variant: a documentary photo of a rural hospital with
+   plain institutional type. Linked directly by index.html. */
+@import './base.css';
+@import './landing-footer.css';
+
+:root {
+  --co-font: 'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--co-font);
+  background: #fff;
+  color: var(--cf-text);
+}
+/* Width without side padding, so the footer rule lines up with the text. */
+main > section,
+.lp-footer {
+  width: min(68rem, calc(100% - 4rem));
+  margin-inline: auto;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+.co-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(88vh, 52rem);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  overflow: hidden;
+}
+.co-hero-img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 55%;
+}
+/* Light shade under the nav, and the photo dissolves into the white page at
+   the bottom. The text gets its own panel. */
+.co-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 -2px; /* past the edge, so no seam shows against the page */
+  background:
+    linear-gradient(to bottom, rgba(12, 24, 20, 0.3), transparent 18%),
+    linear-gradient(to top, #fff, rgba(255, 255, 255, 0.6) 14%, transparent 34%);
+}
+.co-nav,
+.co-hero-text {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+.co-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 5rem;
+}
+.co-nav-login {
+  color: #fff;
+  font-weight: 600;
+}
+.co-hero-text {
+  margin-top: auto;
+  padding-bottom: 3rem;
+}
+/* Frosted panel for the headline, so the photo stays at full brightness. */
+.co-hero-panel {
+  max-width: 37rem;
+  padding: 2.5rem 2.75rem 2.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  box-shadow: 0 20px 50px -24px rgba(7, 23, 15, 0.35);
+}
+.co-hero h1 {
+  margin: 0;
+  color: var(--cf-ink);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.co-hero-text p {
+  max-width: 36rem;
+  margin: 1.1rem 0 1.75rem;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #3d4a44;
+}
+
+.co-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.co-btn {
+  display: inline-flex;
+  padding: 0.75rem 1.4rem;
+  background: var(--cf-primary-600);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 3px;
+}
+.co-btn:hover {
+  background: var(--cf-primary-700);
+  text-decoration: none;
+}
+.co-btn-ghost {
+  background: transparent;
+  color: var(--cf-primary-700);
+  box-shadow: inset 0 0 0 1.5px var(--cf-primary-600);
+}
+.co-btn-ghost:hover {
+  background: rgba(29, 92, 74, 0.08);
+}
+
+/* --- Sections ------------------------------------------------------------ */
+main h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+main p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--cf-muted);
+}
+
+.co-roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding-block: 5rem 4rem;
+}
+.co-roles article {
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--cf-brass-500);
+}
+
+/* Screenshot on a sage panel wider than the text column. Clicking it opens
+   the tour video. */
+main > .co-shot {
+  width: min(76rem, calc(100% - 2rem));
+  padding-block: 1rem 5rem;
+}
+.co-shot figure {
+  margin: 0;
+  padding: 3rem 3rem 2rem;
+  background: var(--cf-primary-50);
+  border-radius: 4px;
+}
+.co-shot-open {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.co-shot img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--cf-border);
+  border-radius: 6px;
+  box-shadow: 0 20px 50px -24px rgba(12, 38, 32, 0.45);
+}
+.co-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem 0.85rem 1.1rem;
+  background: var(--cf-primary-700);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px -10px rgba(7, 23, 15, 0.55);
+  transition: background 0.15s;
+}
+.co-play svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: currentColor;
+}
+.co-shot-open:hover .co-play {
+  background: var(--cf-primary-800);
+}
+.co-shot-open:focus-visible {
+  outline: 3px solid var(--cf-primary-400);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.co-shot figcaption {
+  max-width: 44rem;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--cf-muted);
+}
+
+/* Tour modal */
+.co-tour {
+  width: min(64rem, calc(100% - 2rem));
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #000;
+  overflow: visible;
+}
+.co-tour::backdrop {
+  background: rgba(12, 24, 20, 0.75);
+}
+.co-tour video {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+.co-tour-close {
+  position: absolute;
+  top: -2.75rem;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+}
+.co-tour-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.co-tour-close svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.co-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-block: 1rem 5rem;
+}
+
+main > .co-close {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3.5rem 2rem;
+  background: var(--cf-ink);
+}
+.co-close h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 860px) {
+  .co-roles,
+  .co-split {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+  .co-shot figure {
+    padding: 1rem 1rem 1.25rem;
+  }
+  .co-play {
+    padding: 0.6rem 1rem 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .co-hero-panel {
+    padding: 1.75rem 1.5rem 2rem;
+  }
+  /* Let the photo show above the panel on narrow screens. */
+  .co-hero {
+    min-height: 0;
+  }
+  .co-hero-text {
+    padding-top: 13rem;
+    padding-bottom: 1rem;
+  }
+  main > section,
+  .lp-footer {
+    width: calc(100% - 2rem);
+  }
+  .co-nav,
+  .co-hero-text {
+    padding-inline: 1rem;
+  }
+  main > .co-close {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compflow: physician compensation for community hospitals</title>
+    <meta
+      name="description"
+      content="Compflow simplifies management of provider compensation through intelligent comp sheets. Built for community hospitals."
+    />
+    <link rel="icon" type="image/png" href="logo-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;800&display=swap"
+    />
+    <link rel="stylesheet" href="styles/landing.css" />
+  </head>
+  <body>
+    <header class="co-hero">
+      <img class="co-hero-img" src="landing/hospital.jpg" />
+      <nav class="co-nav">
+        <a
+          class="co-nav-login"
+          href="https://dash.comp.forwardmed.co/login.html"
+          >Log in</a
+        >
+      </nav>
+      <div class="co-hero-text">
+        <div class="co-hero-panel">
+          <h1>Physician compensation for community hospitals</h1>
+          <p>
+            Compflow turns provider contracts and real-time charges into a
+            personal comp sheets. Administrators and providers collaborate with
+            the same intelligent, consistent data.
+          </p>
+          <div class="co-actions">
+            <a class="co-btn" href="https://dash.comp.forwardmed.co/login.html"
+              >Log in</a
+            >
+            <a
+              class="co-btn co-btn-ghost"
+              href="https://dash.comp.forwardmed.co/login.html?mode=signup"
+              >Create an account</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="co-roles">
+        <article>
+          <h2>For the CFO</h2>
+          <p>
+            Enter contracts and easily update them. View compensation in one
+            place that is automatically calculated from charges from the EMR.
+          </p>
+        </article>
+        <article>
+          <h2>For department managers</h2>
+          <p>
+            Track and review comp sheets for providers in your department in
+            real-time.
+          </p>
+        </article>
+        <article>
+          <h2>For physicians</h2>
+          <p>
+            See analysis of the components of your pay from encounter volume, to
+            wRVUs, call pay, and bonuses, with year-to-year trends.
+          </p>
+        </article>
+      </section>
+
+      <section class="co-shot">
+        <figure>
+          <button class="co-shot-open" type="button" aria-haspopup="dialog">
+            <img
+              src="landing/compsheet.jpg"
+              alt="A Compflow comp sheet showing annual base, wRVUs, bonus, and pay by month"
+              loading="lazy"
+            />
+            <span class="co-play">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.5v13l11-6.5z" />
+              </svg>
+              View tour
+            </span>
+          </button>
+          <figcaption>
+            Sample comp sheet for a family med physician with base salary, wRVU
+            bonus, call pay, and quality bonus
+          </figcaption>
+        </figure>
+      </section>
+
+      <dialog class="co-tour" aria-label="Compflow tour">
+        <video
+          src="landing/compflow-tour.mp4"
+          poster="landing/compflow-tour-poster.jpg"
+          controls
+          playsinline
+          preload="none"
+        ></video>
+        <button class="co-tour-close" type="button" aria-label="Close tour">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </dialog>
+
+      <section class="co-split">
+        <div>
+          <h2>Made for a small finance office</h2>
+          <p>
+            Compflow is for community hospitals, where your team handles
+            physician contracts along with everything else. It handles wRVU
+            productivity contracts with base salary, inpatient and location
+            rates, call pay, quality bonuses, and a year-end reconciliation.
+          </p>
+        </div>
+        <div>
+          <h2>Charges stay under your control</h2>
+          <p>
+            A connector installed in your data center reads charges from the
+            electronic medical record (EMR) system and only sends analytic data
+            to Compflow. Protected health information remains safely within your
+            network. Read our
+            <a href="https://dash.comp.forwardmed.co/hipaa.html"
+              >HIPAA statement</a
+            >
+            for details.
+          </p>
+        </div>
+      </section>
+
+      <section class="co-close">
+        <h2>Does your hospital already use Compflow?</h2>
+        <a class="co-btn" href="https://dash.comp.forwardmed.co/login.html"
+          >Log in</a
+        >
+      </section>
+    </main>
+
+    <footer class="lp-footer">
+      <span>&copy; 2026 Compflow</span>
+      <nav>
+        <a href="https://dash.comp.forwardmed.co/terms.html">Terms</a>
+        <a href="https://dash.comp.forwardmed.co/privacy.html">Privacy</a>
+        <a href="https://dash.comp.forwardmed.co/hipaa.html">HIPAA</a>
+        <a href="https://dash.comp.forwardmed.co/aup.html">Acceptable use</a>
+        <a href="https://dash.comp.forwardmed.co/login.html">Log in</a>
+      </nav>
+    </footer>
+
+    <script>
+      // Screenshot opens the tour in a modal. Closing pauses it.
+      const tour = document.querySelector(".co-tour");
+      const tourVideo = tour.querySelector("video");
+      document.querySelector(".co-shot-open").addEventListener("click", () => {
+        tour.showModal();
+        tourVideo.load(); // start over from the beginning
+        tourVideo.play();
+      });
+      tour
+        .querySelector(".co-tour-close")
+        .addEventListener("click", () => tour.close());
+      tour.addEventListener("click", (e) => {
+        if (e.target === tour) tour.close(); // backdrop click
+      });
+      tour.addEventListener("close", () => tourVideo.pause());
+    </script>
+  </body>
+</html>
