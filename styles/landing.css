@@ -45,7 +45,7 @@ main > section,
   position: absolute;
   inset: 0 0 -2px; /* past the edge, so no seam shows against the page */
   background:
-    linear-gradient(to bottom, rgba(12, 24, 20, 0.3), transparent 18%),
+    linear-gradient(to bottom, rgba(8, 20, 40, 0.3), transparent 18%),
     linear-gradient(to top, #fff, rgba(255, 255, 255, 0.6) 14%, transparent 34%);
 }
 .co-nav,
@@ -80,7 +80,7 @@ main > section,
   backdrop-filter: blur(16px) saturate(1.2);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 6px;
-  box-shadow: 0 20px 50px -24px rgba(7, 23, 15, 0.35);
+  box-shadow: 0 20px 50px -24px rgba(8, 20, 45, 0.35);
 }
 .co-hero h1 {
   margin: 0;
@@ -95,7 +95,7 @@ main > section,
   margin: 1.1rem 0 1.75rem;
   font-size: 1.1rem;
   line-height: 1.55;
-  color: #3d4a44;
+  color: #3d4a5e;
 }
 
 .co-actions {
@@ -121,7 +121,7 @@ main > section,
   box-shadow: inset 0 0 0 1.5px var(--cf-primary-600);
 }
 .co-btn-ghost:hover {
-  background: rgba(29, 92, 74, 0.08);
+  background: rgba(21, 90, 186, 0.08);
 }
 
 /* --- Sections ------------------------------------------------------------ */
@@ -146,7 +146,7 @@ main p {
 }
 .co-roles article {
   padding-left: 1.25rem;
-  border-left: 4px solid var(--cf-brass-500);
+  border-left: 4px solid var(--cf-primary-500);
 }
 
 /* Screenshot on a sage panel wider than the text column. Clicking it opens
@@ -175,7 +175,7 @@ main > .co-shot {
   width: 100%;
   border: 1px solid var(--cf-border);
   border-radius: 6px;
-  box-shadow: 0 20px 50px -24px rgba(12, 38, 32, 0.45);
+  box-shadow: 0 20px 50px -24px rgba(8, 30, 70, 0.45);
 }
 .co-play {
   position: absolute;
@@ -190,7 +190,7 @@ main > .co-shot {
   color: #fff;
   font-weight: 600;
   border-radius: 999px;
-  box-shadow: 0 12px 30px -10px rgba(7, 23, 15, 0.55);
+  box-shadow: 0 12px 30px -10px rgba(8, 20, 45, 0.55);
   transition: background 0.15s;
 }
 .co-play svg {
@@ -223,7 +223,7 @@ main > .co-shot {
   overflow: visible;
 }
 .co-tour::backdrop {
-  background: rgba(12, 24, 20, 0.75);
+  background: rgba(8, 20, 40, 0.75);
 }
 .co-tour video {
   display: block;
@@ -294,12 +294,22 @@ main > .co-close {
   .co-hero-panel {
     padding: 1.75rem 1.5rem 2rem;
   }
-  /* Let the photo show above the panel on narrow screens. */
+  /* Photo becomes a 3:2 band cropped to the building, and the panel
+     overlaps its faded bottom edge instead of covering it. */
   .co-hero {
     min-height: 0;
   }
+  .co-hero-img,
+  .co-hero::after {
+    bottom: auto;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+  .co-hero-img {
+    object-position: 90% 50%;
+  }
   .co-hero-text {
-    padding-top: 13rem;
+    padding-top: max(2rem, calc(100vw * 2 / 3 - 8rem));
     padding-bottom: 1rem;
   }
   main > section,
