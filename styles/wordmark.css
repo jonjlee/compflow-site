@@ -1,0 +1,25 @@
+/* ProviderPulse logo: the mark image plus live text, two-tone like the artwork.
+   Each page's <head> loads the Nunito font. */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: 'Nunito', ui-rounded, system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--cf-brand-navy);
+  text-decoration: none;
+}
+.wordmark:hover {
+  text-decoration: none;
+}
+.wordmark img {
+  height: 1.3em;
+  width: auto;
+}
+.wordmark b {
+  font-weight: inherit;
+  color: var(--cf-brand-teal);
+}

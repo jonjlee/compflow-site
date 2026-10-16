@@ -17,6 +17,8 @@
   --cf-text: #1c2434;
   --cf-muted: #5b6b80;
   --cf-border: #e2e8f0;
+  --cf-brand-navy: #0b2e5f; /* logo colors */
+  --cf-brand-teal: #1b8c86;
 
   --cf-font: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
 }

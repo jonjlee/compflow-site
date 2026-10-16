@@ -1,0 +1,96 @@
+/* Legal pages (terms, privacy, hipaa, aup). Linked directly by each page. */
+@import './base.css';
+@import './wordmark.css';
+
+body {
+  font-family: 'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+}
+
+.legal-shell {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Logo + back-to-app row at the top of every legal page. */
+.legal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--cf-border);
+}
+.legal-header a {
+  font-size: 0.85rem;
+}
+.legal-header .wordmark {
+  font-size: 1.35rem;
+}
+
+/* The "fill placeholders before publishing" callout. Drop this block (and the markup)
+   once every bracketed field is filled in. */
+.legal-draft-note {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--cf-warning-300, #f0c987);
+  background: var(--cf-warning-100, #fdf3e1);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--cf-warning-800, #7a531a);
+}
+.legal-draft-note code {
+  font-size: 0.8rem;
+}
+
+.legal-prose {
+  margin-top: 1.5rem;
+  color: var(--cf-text);
+  line-height: 1.6;
+}
+.legal-prose h1 {
+  font-size: 1.7rem;
+  color: var(--cf-primary-800);
+  margin: 0 0 0.25rem;
+}
+.legal-effective {
+  color: var(--cf-muted);
+  font-size: 0.85rem;
+  margin: 0 0 2rem;
+}
+.legal-prose h2 {
+  font-size: 1.15rem;
+  color: var(--cf-primary-700);
+  margin: 2.25rem 0 0.6rem;
+}
+.legal-prose h3 {
+  font-size: 1rem;
+  color: var(--cf-text);
+  margin: 1.5rem 0 0.4rem;
+}
+.legal-prose p,
+.legal-prose li {
+  font-size: 0.93rem;
+}
+.legal-prose ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.4rem;
+}
+.legal-prose li {
+  margin-bottom: 0.35rem;
+}
+.legal-prose strong {
+  color: var(--cf-text);
+}
+
+/* Cross-links to the other legal pages. */
+.legal-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--cf-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--cf-muted);
+}

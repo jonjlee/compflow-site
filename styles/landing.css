@@ -2,6 +2,7 @@
    plain institutional type. Linked directly by index.html. */
 @import './base.css';
 @import './landing-footer.css';
+@import './wordmark.css';
 
 :root {
   --co-font: 'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
@@ -81,6 +82,9 @@ main > section,
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 6px;
   box-shadow: 0 20px 50px -24px rgba(8, 20, 45, 0.35);
+}
+.co-hero-panel .wordmark {
+  margin-bottom: 1.5rem;
 }
 .co-hero h1 {
   margin: 0;
